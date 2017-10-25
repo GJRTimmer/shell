@@ -1,0 +1,17 @@
+---
+Package:
+  - 
+    Name: shell
+    Version: 1.0.0
+    Summary: Shell Functions
+    Description: |-
+      Tcl Module to execute commands within a shell
+    Tcl: 8.6
+    Dependencies:
+      - tepam
+    Files:
+      - shell.tcl
+    InitScript: |-
+      namespace eval shell {
+          namespace import ::tepam::*
+      }
