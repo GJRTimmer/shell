@@ -1,0 +1,61 @@
+[vset TCL_CMD_URI {https://www.tcl.tk/man/tcl8.6/TclCmd}]
+[manpage_begin shell n 1.0.0]
+[keywords shell]
+[keywords func functions]
+[keywords shell windows linux exec execute]
+[copyright "2017 [uri mailto:gjr.timmer@gmail.com {G.J.R. Timmer}]"]
+[moddesc {Shell Functions}]
+[titledesc {Shell Functions}]
+[category {Programming tools}]
+[require Tcl 8.6]
+[require tepam 0.5]
+[description]
+[para]
+This document describes the Tcl module Shell functions(s).
+
+[section Functions]
+All [cmd ::shell::*] commands return a [uri [vset TCL_CMD_URI]/dict.htm dictionary] with two keys.
+[list_begin item]
+    [item] [const CODE] Command return code
+    [item] [const RESULT] Result from the command.
+[list_end]
+
+[list_begin definitions]
+    [call [cmd ::shell::execute] [opt options]]
+    This function will auto detect the current platform and execute the command within the correct platform shell.
+        [list_begin options]
+            [opt_def -trim] Trim newlines from command result
+            [opt_def -background] Run command in background
+            [opt_def command] Command to execute
+        [list_end]
+        
+    [call [cmd ::shell::linux] [opt options]]
+    Run command on [const Linux] platform. Commands are executed within the current $SHELL.
+        [list_begin options]
+            [opt_def -trim] Trim newlines from command result
+            [opt_def -background] Run command in background
+            [opt_def command] Command to execute
+        [list_end]
+        
+    [call [cmd ::shell::windows] [opt options]]
+    Run command on [const Windows] platform. Commands are executed within [const PowerShell].
+        [list_begin options]
+            [opt_def -trim] Trim newlines from command result
+            [opt_def -background] Run command in background
+            [opt_def command] Command to execute
+        [list_end]
+[list_end]
+
+[section {Bugs, Ideas, Feedback}]
+[vset FORUM https://github.com/GJRTimmer/shell/issues]
+[vset LABEL {GitHub}]
+
+This document, and the package it describes, may contain
+bugs and other problems.
+
+Please report such to [uri [vset FORUM] [vset LABEL]].
+
+Please also report any ideas for enhancements you may have for
+either package and/or documentation.
+
+[manpage_end]
